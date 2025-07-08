@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func getName() string {
@@ -29,14 +30,16 @@ func arrayContains(list []string, element string) bool {
 }
 
 func greeting(name string) string {
-	fname := fmt.Sprintf("%.20s", name) // Format so that 20 characters max
+	formattedName := fmt.Sprintf("%.20s", name) // Format so that 20 characters max
 
 	var specialNames = []string{} // Special names that require thanks
 	specialNames = append(specialNames, "Rob Pike")
 	specialNames = append(specialNames, "Ken Thompson")
 	specialNames = append(specialNames, "Robert Griesemer")
 
-	output := "Hello, " + fname // Standard hello
+	firstName := strings.Split(formattedName, " ")[0] // Get first word
+
+	output := "Hello, " + firstName // Standard hello
 
 	if arrayContains(specialNames, name) {
 		output = output + ". Thanks for creating me!"
