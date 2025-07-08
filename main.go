@@ -50,16 +50,16 @@ func isPalindrome(name string) bool {
 }
 
 func greeting(name string) string {
-	formattedName := fmt.Sprintf("%.20s", name) // Format so that 20 characters max
+	formattedName := fmt.Sprintf("%.20s", name)
 
-	var specialNames = []string{} // Special names that require thanks
+	var specialNames = []string{}
 	specialNames = append(specialNames, "Rob Pike")
 	specialNames = append(specialNames, "Ken Thompson")
 	specialNames = append(specialNames, "Robert Griesemer")
 
 	firstName := strings.Split(formattedName, " ")[0]
 
-	output := "Hello, " + firstName // Standard hello
+	output := "Hello, " + firstName
 
 	if arrayContains(specialNames, name) {
 		output = output + ". Thanks for creating me!"
