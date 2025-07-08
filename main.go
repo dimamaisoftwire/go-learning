@@ -19,7 +19,8 @@ func main() {
 }
 
 func greeting(name string) string {
-	output := "Hello, " + name
+	fname := fmt.Sprintf("%.20s", name)
+	output := "Hello, " + fname
 	if name == "Robert Griesemer" {
 		output = output + ". Thanks for creating me!"
 	}
