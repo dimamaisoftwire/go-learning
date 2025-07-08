@@ -2,11 +2,19 @@ package main
 
 import "testing"
 
+var tests = []struct {
+	name     string
+	expected string
+}{
+	{"Alice", "Hello, Alice"},
+	{"Bob", "Hello, Bob"},
+}
+
 func TestGreeting(t *testing.T) {
-	var result, expected string
-	result = greeting()
-	expected = "Hello, world."
-	if result != expected {
-		t.Errorf("%s", "incorrect greeting, got: "+result+" expected: "+expected)
+	for _, test := range tests {
+		result := greeting(test.name)
+		if result != test.expected {
+			t.Errorf("%s", "incorrect greeting, for name "+test.name+" got: "+result+" expected: "+test.expected)
+		}
 	}
 }
