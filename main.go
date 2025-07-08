@@ -19,5 +19,9 @@ func main() {
 }
 
 func greeting(name string) string {
-	return "Hello, " + name
+	output := "Hello, " + name
+	if name == "Robert Griesemer" {
+		output = output + ". Thanks for creating me!"
+	}
+	return output
 }
