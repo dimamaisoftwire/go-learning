@@ -11,6 +11,10 @@ var tests = []struct {
 	{"Robert Griesemer", "Hello, Robert. Thanks for creating me!"},
 	{"Mynameiswayyyyyyytoooo longg", "Hello, Mynameiswayyyyyyytoo"},
 	{"Ken Thompson", "Hello, Ken. Thanks for creating me!"},
+	{"abcdcba", "Hello, abcdcba. Cool, a palindromic name!"},
+	{"abccba", "Hello, abccba. Cool, a palindromic name!"},
+	{"abccba fs", "Hello, abccba"},
+	{"a", "Hello, a. Cool, a palindromic name!"},
 }
 
 func TestGreeting(t *testing.T) {

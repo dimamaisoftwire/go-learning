@@ -29,6 +29,16 @@ func arrayContains(list []string, element string) bool {
 	return false
 }
 
+func isPalindrome(name string) bool {
+	length := len(name)
+	for i := 0; i < length/2; i++ {
+		if name[i] != name[length-i-1] {
+			return false
+		}
+	}
+	return true
+}
+
 func greeting(name string) string {
 	formattedName := fmt.Sprintf("%.20s", name) // Format so that 20 characters max
 
@@ -43,6 +53,9 @@ func greeting(name string) string {
 
 	if arrayContains(specialNames, name) {
 		output = output + ". Thanks for creating me!"
+	}
+	if isPalindrome(name) {
+		output = output + ". Cool, a palindromic name!"
 	}
 
 	return output
