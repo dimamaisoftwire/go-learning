@@ -18,11 +18,29 @@ func main() {
 	fmt.Println(greeting(name))
 }
 
+func arrayContains(list []string, element string) bool {
+	// iterate over the array and compare given string to each element
+	for _, value := range list {
+		if value == element {
+			return true
+		}
+	}
+	return false
+}
+
 func greeting(name string) string {
-	fname := fmt.Sprintf("%.20s", name)
-	output := "Hello, " + fname
-	if name == "Robert Griesemer" {
+	fname := fmt.Sprintf("%.20s", name) // Format so that 20 characters max
+
+	var specialNames = []string{} // Special names that require thanks
+	specialNames = append(specialNames, "Rob Pike")
+	specialNames = append(specialNames, "Ken Thompson")
+	specialNames = append(specialNames, "Robert Griesemer")
+
+	output := "Hello, " + fname // Standard hello
+
+	if arrayContains(specialNames, name) {
 		output = output + ". Thanks for creating me!"
 	}
+
 	return output
 }
