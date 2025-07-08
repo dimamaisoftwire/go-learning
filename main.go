@@ -14,13 +14,23 @@ func getName() string {
 	return scanner.Text()
 }
 
+func hadleInput(input string) string {
+	var output string
+	if input != "" {
+		output = greeting(input)
+	} else {
+		output = "Ok, no greeting for you"
+	}
+	return output
+}
+
 func main() {
 	name := getName()
-	fmt.Println(greeting(name))
+	message := hadleInput(name)
+	fmt.Println(message)
 }
 
 func arrayContains(list []string, element string) bool {
-	// iterate over the array and compare given string to each element
 	for _, value := range list {
 		if value == element {
 			return true
@@ -47,7 +57,7 @@ func greeting(name string) string {
 	specialNames = append(specialNames, "Ken Thompson")
 	specialNames = append(specialNames, "Robert Griesemer")
 
-	firstName := strings.Split(formattedName, " ")[0] // Get first word
+	firstName := strings.Split(formattedName, " ")[0]
 
 	output := "Hello, " + firstName // Standard hello
 

@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 var tests = []struct {
 	name     string
@@ -17,11 +19,27 @@ var tests = []struct {
 	{"a", "Hello, a. Cool, a palindromic name!"},
 }
 
+var inputTests = []struct {
+	input    string
+	expected string
+}{
+	{"Alice", "Hello, Alice"},
+	{"", "Ok, no greeting for you"},
+}
+
 func TestGreeting(t *testing.T) {
 	for _, test := range tests {
 		result := greeting(test.name)
 		if result != test.expected {
 			t.Errorf("%s", "incorrect greeting, for name "+test.name+" got: "+result+" expected: "+test.expected)
+		}
+	}
+}
+func TestHadleInput(t *testing.T) {
+	for _, test := range inputTests {
+		result := hadleInput(test.input)
+		if result != test.expected {
+			t.Errorf("%s", "incorrect greeting, for name "+test.input+" got: "+result+" expected: "+test.expected)
 		}
 	}
 }
